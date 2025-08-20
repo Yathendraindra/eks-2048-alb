@@ -30,6 +30,11 @@ eksctl create iamserviceaccount \
   --name=aws-load-balancer-controller \
   --attach-policy-arn=arn:aws:iam::<account-id>:policy/AWSLoadBalancerControllerIAMPolicy \
   --override-existing-serviceaccounts \
+  --cluster=<cluster-name> \
+  --namespace=kube-system \
+  --name=aws-load-balancer-controller \
+  --attach-policy-arn=arn:aws:iam::<account-id>:policy/AWSLoadBalancerControllerIAMPolicy \
+  --override-existing-serviceaccounts \
   --approve
 ________________________________________
 Step 3: Install the AWS Load Balancer Controller via Helm
