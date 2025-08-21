@@ -4,7 +4,7 @@ metadata:
   name: game-2048
   namespace: game-2048
 spec: 
-  type: NodePort
+  type: ClusterIP
   selector: 
     app: game-2048
   ports:
