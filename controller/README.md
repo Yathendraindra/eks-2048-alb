@@ -36,17 +36,13 @@ Step 2: Create IAM Role for Service Account.
 Use eksctl to create the IAM role and attach the policy.
 
 eksctl create iamserviceaccount \
-  --cluster=<cluster-name> \
-  --namespace=kube-system \
-  --name=aws-load-balancer-controller \
-  --attach-policy-arn=arn:aws:iam::<account-id>:policy/AWSLoadBalancerControllerIAMPolicy \
-  --override-existing-serviceaccounts \
-  --cluster=<cluster-name> \
+  --cluster=eks-portfolio-cluster \
   --namespace=kube-system \
   --name=aws-load-balancer-controller \
   --attach-policy-arn=arn:aws:iam::<account-id>:policy/AWSLoadBalancerControllerIAMPolicy \
   --override-existing-serviceaccounts \
   --approve
+
 ________________________________________
 
 Step 3: Install the AWS Load Balancer Controller via Helm
@@ -56,7 +52,7 @@ helm repo update
 
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
-  --set clusterName=<cluster-name> \
+  --set clusterName=eks-portfolio-cluster \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller
 ________________________________________
