@@ -10,3 +10,4 @@ fargateProfiles:
     selectors:
       - namespace: default
       - namespace: kube-system
+      - namespace: game-2048
